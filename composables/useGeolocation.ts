@@ -14,6 +14,10 @@ export function useGeolocation() {
           longitude.value = position.coords.longitude;
         },
         (err) => {
+          latitude.value = null;
+          longitude.value = null;
+          console.log("latitude",latitude.value)
+          console.log("longitude",longitude.value)
           switch(err.code) {
             case err.PERMISSION_DENIED:
               error.value = "User denied the request for Geolocation.";
